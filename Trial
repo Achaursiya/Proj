@@ -17,7 +17,7 @@ pipeline {
       steps {
         withSonarQubeEnv('sonar') {
           sh 'mvn sonar:sonar -Dsonar.login=8b128f4873cfc7d87c88e814093af57b9e01a752'
-          sh 'cat target/sonar/report-task.txt || true'
+          sh 'cat target/sonar/report-task.txt '
         }
       }
     }
