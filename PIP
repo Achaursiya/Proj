@@ -14,6 +14,7 @@ pipeline {
     }
     stage ('Source Composition Analysis') {
       steps {
+         sh 'rm $(pwd)/odc-reports'
          sh 'mkdir $(pwd)/odc-reports'
          sh 'chmod 755 $(pwd)/odc-reports'
          sh 'rm owasp* || true'
