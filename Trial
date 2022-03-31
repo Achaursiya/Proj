@@ -12,6 +12,21 @@ pipeline {
             ''' 
       }
     }
+    stage ('Check-Git-Secrets') {
+      steps {
+        sh 'rm trufflehog || true'
+        sh 'docker run gesellix/trufflehog --json https://github.com/Achaursiya/Proj.git > trufflehog'
+        sh 'cat trufflehog'
+      }
+    }
+     stage ('SAST') {
+      steps {
+        withSonarQubeEnv('sonar') {
+          sh 'mvn sonar:sonar -Dsonar.login=21aab21f23493b8cef0b7e8ad2ccf0ac11fdf9b0'
+          sh 'cat target/sonar/report-task.txt '
+        }
+      }
+    }
      stage ('Build') {
       steps {
       sh 'mvn clean package'
