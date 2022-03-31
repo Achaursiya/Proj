@@ -16,8 +16,7 @@ if [ ! -d "$CACHE_DIRECTORY" ]; then
 fi
 
 
-mkdir $(pwd)/odc-reports
-chmod 755 $(pwd)/odc-reports
+
 # Make sure we are using the latest version
 docker pull owasp/dependency-check:$DC_VERSION
 
