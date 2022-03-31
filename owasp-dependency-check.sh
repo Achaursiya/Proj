@@ -15,6 +15,8 @@ fi
 # Make sure we are using the latest version
 docker pull owasp/dependency-check:$DC_VERSION
 docker run --rm --name dependency-check \
+-e user=$USER
+ -u $(id -u ${USER}):$(id -g ${USER})
  -v $PWD/src:/src \
  -v $PWD/report:/report \
  -v dependency_check_data:/usr/share/dependency-check/data/ \
