@@ -14,6 +14,14 @@ if [ ! -d "$CACHE_DIRECTORY" ]; then
 fi
 # Make sure we are using the latest version
 docker pull owasp/dependency-check:$DC_VERSION
-docker run --rm --name dependency-check -v $PWD/src:/src -v $PWD/report:/report -v dependency_check_data:/usr/share/dependency-check/data/ owasp/dependency-check:6.2.1 -o /report --scan /src --format ALL --project "dependency-check scan: $(pwd)"
+docker run --rm --name dependency-check \ 
+-v $(pwd)/src:/src \
+-v $(pwd)/report:/report \ 
+-v dependency_check_data:/usr/share/dependency-check/data/ \
+owasp/dependency-check:6.2.1 \
+-o /report  \ 
+--scan /src \
+--format ALL \
+--project "dependency-check scan: $(pwd)"
     # Use suppression like this: (where /src == $pwd)
     # --suppression "/src/security/dependency-check-suppression.xml"
