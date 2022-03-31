@@ -16,14 +16,13 @@ fi
 docker pull owasp/dependency-check:$DC_VERSION
 docker run --rm \
 --name dependency-check \
--v $(pwd)/src:/src \
--v $(pwd)/report:/report \
+-v $PWD/src:/src \
+-v $PWD/report:/report \
 -v dependency_check_data:/usr/share/dependency-check/data/ \
 owasp/dependency-check:6.0.4 \
 -scan /src \
 -format "ALL" \
--project "dependency-check scan: $(pwd)"
+-project “My OWASP Dependency Check Project”
 -o /report
-
     # Use suppression like this: (where /src == $pwd)
     # --suppression "/src/security/dependency-check-suppression.xml"
