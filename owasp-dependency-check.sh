@@ -13,7 +13,7 @@ if [ ! -d "$CACHE_DIRECTORY" ]; then
     mkdir -p "$CACHE_DIRECTORY"
 fi
 # Make sure we are using the latest version
-docker pull owasp/dependency-check:$DC_VERSION
+docker pull owasp/dependency-check:6.2.1
 docker run --rm --name dependency-check \ 
 -v $(pwd)/src:/src \
 -v $(pwd)/report:/report \ 
