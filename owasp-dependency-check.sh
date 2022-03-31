@@ -15,10 +15,11 @@ if [ ! -d "$CACHE_DIRECTORY" ]; then
     mkdir -p "$CACHE_DIRECTORY"
 fi
 
-# Make sure we are using the latest version
-docker pull owasp/dependency-check:$DC_VERSION
+
 mkdir $(pwd)/odc-reports
 chmod 755 $(pwd)/odc-reports
+# Make sure we are using the latest version
+docker pull owasp/dependency-check:$DC_VERSION
 
 docker run --rm \
     -e user=$USER \
