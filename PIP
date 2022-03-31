@@ -12,6 +12,13 @@ pipeline {
             ''' 
       }
     }
+    stage ('Check-Git-Secrets') {
+      steps {
+        sh 'rm trufflehog || true'
+        sh 'docker run gesellix/trufflehog --json https://github.com/Achaursiya/Proj.git > trufflehog'
+        sh 'cat trufflehog'
+      }
+    }
     stage ('Source Composition Analysis') {
       steps {
          sh 'rm owasp* || true'
@@ -22,13 +29,7 @@ pipeline {
         
       }
     }
-    stage ('Check-Git-Secrets') {
-      steps {
-        sh 'rm trufflehog || true'
-        sh 'docker run gesellix/trufflehog --json https://github.com/Achaursiya/Proj.git > trufflehog'
-        sh 'cat trufflehog'
-      }
-    }
+    
      stage ('SAST') {
       steps {
         withSonarQubeEnv('sonar') {
