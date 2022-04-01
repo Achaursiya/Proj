@@ -35,7 +35,7 @@ pipeline {
      stage ('SAST') {
       steps {
         withSonarQubeEnv('sonar') {
-          sh 'mvn sonar:sonar -Dsonar.login=9deafab2297b3b06e24c4bc2e7f2021c6eab8619'
+          sh 'mvn sonar:sonar -Dsonar.login=9120132e321e10cb72000b925b99a134fd27f002'
           sh 'cat target/sonar/report-task.txt '
         }
       }
