@@ -24,7 +24,7 @@ pipeline {
          sh 'rm owasp* || true'
          sh 'wget "https://raw.githubusercontent.com/Achaursiya/Proj/main/owasp-dependency.sh" '
          sh 'chmod +x owasp-dependency.sh'
-         sh 'bash owasp-dependency-check.sh'
+         sh 'bash owasp-dependency.sh'
          
         
       }
