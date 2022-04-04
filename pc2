@@ -16,7 +16,7 @@ pipeline {
       steps {
         sh 'rm trufflehog || true'
         sh 'docker run gesellix/trufflehog --json https://github.com/Achaursiya/Proj.git > trufflehog'
-        sh 'jq /var/lib/jenkins/workspace/devsecops trufflehog'
+        sh 'jq . trufflehog'
       }
     }
     stage ('Source Composition Analysis') {
