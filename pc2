@@ -26,8 +26,7 @@ pipeline {
          sh 'chmod +x owasp-dependency-check.sh'
          sh 'bash owasp-dependency-check.sh'
          sh 'pwd'
-         sh 'cd /var/lib/jenkins/workspace/devsecops/odc-reports '
-         sh 'jq . dependency-check-report.json'
+         sh 'jq /var/lib/jenkins/workspace/devsecops/odc-reports/dependency-check-report.json'
          
         
       }
