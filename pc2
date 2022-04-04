@@ -16,7 +16,7 @@ pipeline {
       steps {
         sh 'rm trufflehog || true'
         sh 'docker run gesellix/trufflehog --json https://github.com/Achaursiya/Proj.git > trufflehog'
-        sh 'cat trufflehog'
+        sh 'jq /var/lib/jenkins/workspace/devsecops/trufflehog'
       }
     }
     stage ('Source Composition Analysis') {
@@ -26,7 +26,7 @@ pipeline {
          sh 'chmod +x owasp-dependency-check.sh'
          sh 'bash owasp-dependency-check.sh'
          sh 'pwd'
-         sh 'cat $(pwd)/odc-reports/dependency-check-report.xml'
+         sh 'jq /var/lib/jenkins/workspace/devsecops/odc-reports/dependency-check-report.json'
          
         
       }
