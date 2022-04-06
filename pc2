@@ -12,12 +12,7 @@ pipeline {
             ''' 
       }
     }
-      stage ('DAST') {
-      steps {
-        sh 'python3 -m pip install archerysec-cli --force mkdir /tmp/archerysec-scans-report archerysec-cli -h http://192.168.80.133:8000 -t boqgyCsRRxJwazvmS0wXiVje8Z31GaLGJ9btdu0k4gNe_FI77umQ2sBGo8PY5rko --cicd_id=860a4bc7-f893-468d-ae25-1d9b0a6ff1b2 --project=27e8ac41-7ee7-465c-ad9b-889dc814a9f8 --dependency-check --report_path=/tmp/archerysec-scans-report '
-       
-      }
-    }
+     
     stage ('Check-Git-Secrets') {
       steps {
         sh 'rm trufflehog || true'
