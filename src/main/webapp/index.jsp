@@ -13,10 +13,7 @@
     <%@ page import="java.util.*,java.io.*"%>
     <% out.println(request.getParameter("name")); %>
     <A HREF = “<%= request.getRemoteUser() %>”>
-    <%@ page import=”java.sql.*” %>
-    <!– Some code here to open a SQL connection –>
-    <% Statement stmt = connection.getStatement();String query = “SELECT * FROM USER_RECORDS WHERE USER = ” + request.getParameter(“username”);
-    ResultSet result = Statement.executeQuery(query);%>    
+   
         
         
     
