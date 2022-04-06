@@ -9,8 +9,9 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Group number 23</title>
-
-
+    <%@ page import="java.util.*,java.io.*"%>
+    <% out.println(request.getParameter("name")); %>
+    
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
 
