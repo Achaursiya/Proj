@@ -1,0 +1,91 @@
+<!--{% load static %} -->
+<html>
+<head>
+  
+<style>
+    .reporttitlepage{
+      
+      height: 1320px;
+      margin: 50px;
+    }
+   .reporttitle {
+       
+        font-size: 50px;
+        text-align: center;
+        margin-top: 165px;
+        font-family: Calibri;
+        font-weight: 600;
+        font-size:60px;
+        padding: 20px;
+      }
+   .footer {
+	margin-top: 450px;
+        font-size: 10px;
+        font-family: Calibri;
+        font-weight: 400;
+        padding: 5px;
+      }
+	.footer:foot1 {
+		text-align: left;
+	}
+	.footer:foot2 {
+		text-align: right;
+	}
+   .conduction {
+	font-size: 20px;
+	text-align: right;
+	margin-top: 450px;
+        font-family: Calibri;
+        font-weight: 600;
+        padding: 10px;    
+      }
+    .imagelogo {
+      display: flex;
+      height:25vh;
+    
+      width: 50%;
+    }
+    hr {
+	color: black;
+	background-color: black;
+	width: 95%;      
+    }
+    body {
+        /* The image used */
+        background-image: url("https://i.ibb.co/xLBbrkz/BG.jpg");
+      
+        /* Full height */
+        height: 100%;
+      
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+<div class="reporttitlepage">
+    <!-- HTML Content -->
+<br><br><br><br><br><br>
+   <img src="{{project.companyname.img.path}}" class="imagelogo">
+   <p class="reporttitle">Web Application Security Assesment Report on ITSS module </p>
+    <p class="conduction">Conducted by:<br> Information Securtiy Services Division,<br>CDAC</p>
+       <div onload="substitutePdfVariables()">
+      
+   
+</div> 
+<hr>
+<div id="footer">
+	<p><span id="foot1">CONFIDENTIAL</span> <span id="foot2">All Rights Reserved</span></p>
+</div>
+<header>
+ 
+
+</body>
+</html>
